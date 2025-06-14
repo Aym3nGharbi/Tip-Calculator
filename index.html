@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="tip-calculator">
+            <h1>Tip Calculator</h1>
+            <p class="firstparg">Enter the Bill amount and tip percentage to calculate the total</p>
+            <p>Bill amount:</p>
+            <input type="text" id="bill">
+            <p>Tip percentage:</p>
+            <input type="text" id="tip">
+            <button class="js-calculate-button">Calculate</button>
+            <h4 class="lastparg">Total: <span id="result">0</span></h4>
+        </div>
+    </div>
+    <script>
+        const billInput = document.getElementById('bill');
+        const tipInput = document.getElementById('tip');
+        const total = document.getElementById('result');
+        const calculateBtn = document.querySelector('.js-calculate-button'); 
+        function calculate(){
+            let billamount = Number(billInput.value);
+            let tipercentage = Number(tipInput.value);
+            let result = billamount + (billamount*tipercentage)/100;
+            total.innerHTML = result.toFixed(2) + '$';
+        }
+        calculateBtn.addEventListener('click', calculate);
+    </script>
+</body>
+</html>
